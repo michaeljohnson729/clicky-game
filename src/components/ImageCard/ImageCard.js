@@ -1,7 +1,7 @@
 import React from "react";
-import "./FriendCard.css";
+import "./ImageCard.css";
 
-const FriendCard = props => (
+const ImageCard = props => (
   <div className="card" onClick={() => props.handleClick(props.id)}>
     <div className="img-container">
       <img alt={props.id} src={props.image} />
@@ -9,4 +9,4 @@ const FriendCard = props => (
   </div>
 );
 
-export default FriendCard;
+export default ImageCard;

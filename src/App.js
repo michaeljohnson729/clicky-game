@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import FriendCard from "./components/FriendCard";
+import ImageCard from "./components/ImageCard";
 import Wrapper from "./components/Wrapper";
-import Title from "./components/Title";
-import friends from "./friends.json";
+import NavBar from "./components/NavBar";
+import characters from "./characters.json";
 import "./App.css";
 
 class App extends Component {
   state = {
-    friends: [],
+    characters: [],
     score: 0,
     topScore: 0,
     results: "",
@@ -15,11 +15,11 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.renderFriends(friends);
+    this.renderCharacters(characters);
   }
 
-  renderFriends(friend) {
-    this.setState({friends: friend})
+  renderCharacters(character) {
+    this.setState({characters: character})
   }
 
   handleClick = (id) => {
@@ -38,8 +38,8 @@ class App extends Component {
     this.setState({score: newScore});
     guessArray.push(id);
     this.setState({guesses: guessArray});
-    let newFriends = this.shuffleArray(this.state.friends)
-    this.renderFriends(newFriends);
+    let newFriends = this.shuffleArray(this.state.characters)
+    this.renderCharacters(newFriends);
   }};
 
   shuffleArray = array => {
@@ -50,18 +50,20 @@ class App extends Component {
   
   render() {
     return (
+      <div>
+      <NavBar score={this.state.score} topScore={this.state.topScore} result={this.state.result}>Game of Clicks</NavBar>
       <div className="container">
-        <Title score={this.state.score} topScore={this.state.topScore} result={this.state.result}>Game of Clicks</Title>
         <Wrapper>
-          {this.state.friends.map(friend => (
-            <FriendCard
-              id={friend.id}
-              key={friend.id}
-              image={friend.image}
+          {this.state.characters.map(character => (
+            <ImageCard
+              id={character.id}
+              key={character.id}
+              image={character.image}
               handleClick={this.handleClick}
             />
           ))}
         </Wrapper>
+      </div>
       </div>
     )
   }
