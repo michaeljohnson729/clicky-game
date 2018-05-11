@@ -10,7 +10,7 @@ class App extends Component {
     friends: [],
     score: 0,
     topScore: 0,
-    results: false,
+    results: "",
     guesses: []
   };
 
@@ -25,6 +25,7 @@ class App extends Component {
   handleClick = (id) => {
     const guessArray = this.state.guesses.slice();
     if (guessArray.includes(id)){
+      this.setState({result: "Winter is here, sorry 😢"});
       const score = this.state.score;
       const topScore = this.state.topScore;
       if (score > topScore){
@@ -32,6 +33,7 @@ class App extends Component {
       }
       this.setState({score: 0, guesses: []});
     } else {
+    this.setState({result: "Winter isn't here yet, keep clicking!"});
     const newScore = this.state.score + 1
     this.setState({score: newScore});
     guessArray.push(id);

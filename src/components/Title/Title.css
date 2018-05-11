@@ -1,3 +1,4 @@
-a {
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
     color: white;
 }
