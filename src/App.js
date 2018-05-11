@@ -14,9 +14,17 @@ class App extends Component {
     guesses: []
   };
 
+  componentDidMount() {
+    this.renderFriends(friends);
+  }
+
+  renderFriends(friend) {
+    this.setState({friends: friend})
+  }
+
   handleClick = (id) => {
-    const newStateArray = this.state.guesses.slice();
-    if (newStateArray.includes(id)){
+    const guessArray = this.state.guesses.slice();
+    if (guessArray.includes(id)){
       const score = this.state.score;
       const topScore = this.state.topScore;
       if (score > topScore){
@@ -26,8 +34,8 @@ class App extends Component {
     } else {
     const newScore = this.state.score + 1
     this.setState({score: newScore});
-    newStateArray.push(id);
-    this.setState({guesses: newStateArray});
+    guessArray.push(id);
+    this.setState({guesses: guessArray});
     let newFriends = this.shuffleArray(this.state.friends)
     this.renderFriends(newFriends);
   }};
@@ -37,14 +45,7 @@ class App extends Component {
     return array;
   }
 
-  componentDidMount() {
-    this.renderFriends(friends);
-  }
-
-  renderFriends(friend) {
-    this.setState({friends: friend})
-  }
-
+  
   render() {
     return (
       <div className="container">
