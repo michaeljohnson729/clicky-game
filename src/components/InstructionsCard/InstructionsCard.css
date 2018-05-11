@@ -1,0 +1,11 @@
+.card-instructions {
+  background: #fff;
+  border-radius: 2px;
+  height: 190px;
+  margin: 1rem;
+  position: relative;
+  width: 100%;
+  text-align: left;
+  border-radius: 5px;
+}
+

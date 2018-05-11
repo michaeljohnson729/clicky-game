@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ImageCard from "./components/ImageCard";
 import Wrapper from "./components/Wrapper";
 import NavBar from "./components/NavBar";
+import InstructionsCard from "./components/InstructionsCard";
 import characters from "./characters.json";
 import "./App.css";
 
@@ -53,6 +54,7 @@ class App extends Component {
       <div>
       <NavBar score={this.state.score} topScore={this.state.topScore} result={this.state.result}>Game of Clicks</NavBar>
       <div className="container">
+        <InstructionsCard />
         <Wrapper>
           {this.state.characters.map(character => (
             <ImageCard
